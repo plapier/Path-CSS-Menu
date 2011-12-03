@@ -1,0 +1,40 @@
+@import "base-variables";
+@import "base-extends";
+
+//************************************************************************//
+// Base Global Styles
+//************************************************************************//
+
+body, html {
+  background: white;
+}
+
+body {
+  font-family: $helvetica;
+}
+
+div.inner-wrapper {
+  padding: 20px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $base-font-family;
+  font-weight: 100;
+}
+
+a, a:link, a:active, a:visited {
+  color: $base-link-color;
+  text-decoration: none;
+}
+
+a:hover {
+  color: darken($base-link-color, 15%);
+}
+
+$selection: hsl(14, 97%, 55%);
+::selection {
+  background: $selection;
+}
+::-moz-selection {
+  background: $selection;
+}

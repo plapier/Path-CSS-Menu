@@ -1,0 +1,80 @@
+//************************************************************************//
+// Keyframes for Animations
+//************************************************************************//
+
+.force3d {
+  -webkit-backface-visibility: hidden;  // Possibly fixes animation screen flicker
+  -webkit-perspective: 1000;            // Possibly fixes animation screen flicker
+  -webkit-transform-style: preserve-3d; // Possibly fixes animation screen flicker
+}
+
+.animation-flyout {
+  @extend .force3d;
+  // @include animation-timing-function($ease-out-back);
+  @include animation-timing-function(cubic-bezier(0.175, 0.885, 0.32, 1.3));
+  @include animation-fill-mode(both);
+}
+
+.animation-flyin {
+  @extend .force3d;
+  // @include animation-timing-function($ease-in-back);
+  @include animation-timing-function(cubic-bezier(0.6, -0.3, 0.735, 0.045));
+  @include animation-fill-mode(both);
+}
+
+// Slide Up Animation
+@mixin animation-flyout($name, $delay) {
+  @include animation-name($name);
+  @include animation-duration(0.5s);
+  @include animation-delay($delay);
+}
+@mixin flyout($x, $y) {
+  0% {
+    @include transform(translate3d(0, 0, 0) rotate(0deg));
+  }
+  100% {
+    @include transform(translate3d($x, $y, 0) rotate(360deg));
+  }
+}
+
+@-webkit-keyframes flyout-cam { @include flyout(0px, -136px); }
+
+@-webkit-keyframes flyout-friend { @include flyout(42px, -129px); }
+
+@-webkit-keyframes flyout-location { @include flyout(80px, -110px); }
+
+@-webkit-keyframes flyout-music { @include flyout(110px, -80px); }
+
+@-webkit-keyframes flyout-comment { @include flyout(129px, -42px); }
+
+@-webkit-keyframes flyout-status { @include flyout(136px, 0px); }
+
+
+
+@mixin animation-flyin($name, $delay) {
+  @include animation-name($name);
+  @include animation-duration(0.5s);
+  @include animation-delay($delay);
+}
+@mixin flyin($x, $y) {
+  0% {
+    @include transform(translate3d($x, $y, 0) rotate(0deg));
+  }
+  40% {
+    @include transform(translate3d($x, $y, 0) rotate(360deg));
+  }
+  100% {
+    @include transform(translate3d(0, 0, 0) rotate(360deg));
+  }
+}
+@-webkit-keyframes flyin-cam { @include flyin(0px, -136px); }
+
+@-webkit-keyframes flyin-friend { @include flyin(42px, -129px); }
+
+@-webkit-keyframes flyin-location { @include flyin(80px, -110px); }
+
+@-webkit-keyframes flyin-music { @include flyin(110px, -80px); }
+
+@-webkit-keyframes flyin-comment { @include flyin(129px, -42px); }
+
+@-webkit-keyframes flyin-status { @include flyin(136px, 0px); }

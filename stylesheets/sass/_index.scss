@@ -1,0 +1,97 @@
+section.container {
+  width: 400px;
+  margin: 200px auto;
+  position: relative;
+
+  div.open-button {
+    background-color: hsl(14, 97%, 55%);
+    @include border-radius(120px);
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    position: relative;
+  }
+
+  div.button {
+    background-color: hsl(0, 0%, 27%);
+    @include border-radius(40px);
+    color: white;
+    float: left;
+    font-size: 11px;
+    height: 32px;
+    left: 4px;
+    line-height: 3em;
+    position: absolute;
+    text-align: center;
+    top: 4px;
+    width: 32px;
+    @include transition;
+
+
+    $delay-1: 0.0s;
+    $delay-2: 0.05s;
+    $delay-3: 0.1s;
+    $delay-4: 0.15s;
+    $delay-5: 0.2s;
+    $delay-6: 0.25s;
+
+    &.expanded {
+      &:hover {
+        zoom: 1.2;
+      }
+
+      &.cam {
+        @extend .animation-flyout;
+        @include animation-flyout(flyout-cam, $delay-1);
+      }
+      &.friend {
+        @extend .animation-flyout;
+        @include animation-flyout(flyout-friend, $delay-2);
+      }
+      &.location {
+        @extend .animation-flyout;
+        @include animation-flyout(flyout-location, $delay-3);
+      }
+      &.music {
+        @extend .animation-flyout;
+        @include animation-flyout(flyout-music, $delay-4);
+      }
+      &.comment {
+        @extend .animation-flyout;
+        @include animation-flyout(flyout-comment, $delay-5);
+      }
+      &.status {
+        @extend .animation-flyout;
+        @include animation-flyout(flyout-status, $delay-6);
+      }
+    }
+
+    &.collapsed {
+      &.cam {
+        @extend .animation-flyin;
+        @include animation-flyin(flyin-cam, $delay-6);
+      }
+
+      &.friend {
+        @extend .animation-flyin;
+        @include animation-flyin(flyin-friend, $delay-5);
+      }
+      &.location {
+        @extend .animation-flyin;
+        @include animation-flyin(flyin-location, $delay-4);
+      }
+      &.music {
+        @extend .animation-flyin;
+        @include animation-flyin(flyin-music, $delay-3);
+      }
+      &.comment {
+        @extend .animation-flyin;
+        @include animation-flyin(flyin-comment, $delay-2);
+      }
+      &.status {
+        @extend .animation-flyin;
+        @include animation-flyin(flyin-status, $delay-1);
+      }
+    }
+  }
+}

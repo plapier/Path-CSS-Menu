@@ -1,0 +1,22 @@
+//************************************************************************//
+// Base Variables
+//************************************************************************//
+
+$base-border-color:   #000;
+
+$base-font-family:      $helvetica;
+$base-font-family-alt:  $georgia;
+
+$fase-font-size:      13px;
+$fase-font-size-alt:  11px;
+
+$base-font-color:     #333;
+$base-font-color-alt: #CCC;
+
+$base-link-color:     hsl(14, 97%, 55%); // orange
+$base-link-color-alt: #666;
+
+
+// Grid-width function
+$gw-column: 100px;       // Column Width
+$gw-gutter: 40px;        // Gutter Width
